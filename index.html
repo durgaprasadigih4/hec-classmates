@@ -82,21 +82,32 @@ function unlockSite(){
   document.getElementById("password").value="";
  }
 }
-
 function makeCards(){
  classmates.forEach(person=>{
   const card=document.createElement("div");
   card.className="card";
-  card.innerHTML =
- person.name === "Vyshuu"
- ? '<img src="Screenshot_20261103_132545_Instagram.jpg" style="width:100%;height:130px;object-fit:cover;border-radius:12px"><br>'+person.name
- : person.name === "Bhuvana"
- ? '<img src="Screenshot_20261103_134451_Instagram.jpg" style="width:100%;height:130px;object-fit:cover;border-radius:12px"><br>'+person.name
- : '<span>📸</span>'+person.name;
+
+  const photos = {
+   "Vyshuu":"Screenshot_20261103_132545_Instagram.jpg",
+   "Bhuvana":"Screenshot_20261103_134451_Instagram.jpg",
+   "Prashuu":"Prashuu.jpg",
+   "Ajay":"Ajay.jpg",
+   "Kavya":"Kavya.jpg",
+   "Pandu":"Pandu.jpg",
+   "Satish":"Satish.jpg",
+   "Vinay Maxy":"Vinay maxxy.jpg",
+   "Divya":"Divya.jpg"
+  };
+
+  card.innerHTML = photos[person.name]
+   ? '<img src="'+photos[person.name]+'" style="width:100%;height:130px;object-fit:cover;border-radius:12px"><br>'+person.name
+   : '<span>📸</span>'+person.name;
+
   card.onclick=()=>openProfile(person);
   document.getElementById(person.group).appendChild(card);
  });
-}
+ }
+
 
 function openProfile(person){
  document.getElementById("personName").textContent=person.name;
