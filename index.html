@@ -88,8 +88,11 @@ function makeCards(){
  classmates.forEach(person=>{
   const card=document.createElement("div");
   card.className="card";
-  card.innerHTML = person.name === "Vyshuu"
+  card.innerHTML =
+ person.name === "Vyshuu"
  ? '<img src="Screenshot_20261103_132545_Instagram.jpg" style="width:100%;height:130px;object-fit:cover;border-radius:12px"><br>'+person.name
+ : person.name === "Bhuvana"
+ ? '<img src="Screenshot_20261103_134451_Instagram.jpg" style="width:100%;height:130px;object-fit:cover;border-radius:12px"><br>'+person.name
  : '<span>📸</span>'+person.name;
   card.onclick=()=>openProfile(person);
   document.getElementById(person.group).appendChild(card);
